@@ -134,6 +134,7 @@
       top: 0;
       height: 100vh;
       overflow-y: auto;
+       padding: 50px 10px 0px;
     }
 
     .sidebar-section-title {
@@ -176,6 +177,17 @@
       font-size: 11px;
     }
     .sidebar-btn:hover { color: #fff; }
+
+    .sidebar-link {
+  display: block;
+  color: #666;
+  font-size: 16px;
+  text-decoration: none;
+  margin: 8px 0;
+  padding-left: 4px;
+  transition: color 0.15s;
+}
+.sidebar-link:hover { color: #cc0000; }
   </style>
 </head>
 <body>
@@ -417,7 +429,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-storage"> 
           <span class="section-icon">■</span>
           <span class="section-title">비품 보관실</span>
         </div>
@@ -488,7 +500,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-care">  
           <span class="section-icon">■</span>
           <span class="section-title">도움반</span>
         </div>
@@ -640,7 +652,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-weeclass">
           <span class="section-icon">■</span>
           <span class="section-title">위클래스</span>
         </div>
@@ -693,7 +705,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-music"> 
           <span class="section-icon">■</span>
           <span class="section-title">음악실</span>
         </div>
@@ -746,7 +758,7 @@
       </div>
 
        <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-av">
           <span class="section-icon">■</span>
           <span class="section-title">시청각실</span>
         </div>
@@ -835,7 +847,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-class28">
           <span class="section-icon">■</span>
           <span class="section-title">2학년 8반</span>
         </div>
@@ -905,7 +917,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-electric"> 
           <span class="section-icon">■</span>
           <span class="section-title">배전실</span>
         </div>
@@ -951,7 +963,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-art">  
           <span class="section-icon">■</span>
           <span class="section-title">미술실</span>
         </div>
@@ -974,7 +986,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-theater"> 
           <span class="section-icon">■</span>
           <span class="section-title">연극실</span>
         </div>
@@ -1040,7 +1052,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-hall">
           <span class="section-icon">■</span>
           <span class="section-title">대강당</span>
         </div>
@@ -1115,7 +1127,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-computer"> 
           <span class="section-icon">■</span>
           <span class="section-title">컴퓨터실</span>
         </div>
@@ -1160,7 +1172,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-mirror">
           <span class="section-icon">■</span>
           <span class="section-title">깨진 거울 조각 위치 및 본드 위치</span>
         </div>
@@ -1215,7 +1227,7 @@
       </div>
 
         <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-dance"> 
           <span class="section-icon">■</span>
           <span class="section-title">무용실</span>
         </div>
@@ -1266,7 +1278,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-bad">
           <span class="section-icon">■</span>
           <span class="section-title">배드 엔딩</span>
         </div>
@@ -1278,7 +1290,7 @@
       </div>
 
       <div class="section">
-        <div class="section-header" onclick="toggleSection(this)">
+        <div class="section-header" onclick="toggleSection(this)" id="section-true">
           <span class="section-icon">■</span>
           <span class="section-title">트루 엔딩</span>
         </div>
@@ -1305,6 +1317,31 @@
       <hr class="sidebar-divider">
       <button class="sidebar-btn" onclick="openAll()">전체 열기</button>
       <button class="sidebar-btn" onclick="closeAll()">전체 닫기</button>
+
+      <hr class="sidebar-divider">
+
+      <a style="font-size: 24px; color: red;"> 메인 퍼즐 </a>
+      
+      <a href="#section-storage" class="sidebar-link">비품 보관실</a>
+      <a href="#section-care" class="sidebar-link">도움반</a>
+      <a href="#section-weeclass" class="sidebar-link">위클래스</a>
+      <a href="#section-music" class="sidebar-link">음악실</a>
+      <a href="#section-av" class="sidebar-link">시청각실</a>
+      <a href="#section-class28" class="sidebar-link">2학년 8반</a>
+      <a href="#section-electric" class="sidebar-link">배전실</a>
+      <a href="#section-art" class="sidebar-link">미술실</a>
+      <a href="#section-theater" class="sidebar-link">연극실</a>
+      <a href="#section-hall" class="sidebar-link">대강당</a>
+      <a href="#section-computer" class="sidebar-link">컴퓨터실</a>
+      <a href="#section-dance" class="sidebar-link">무용실</a>
+
+      <hr class="sidebar-divider">
+
+      <a href="#section-mirror" class="sidebar-link">깨진 거울 조각 위치 및 본드 위치</a>
+      <a href="#section-bad" class="sidebar-link">배드 엔딩</a>
+      <a href="#section-true" class="sidebar-link">트루 엔딩</a>
+
+
     </div>
 
   </div>
