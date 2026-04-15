@@ -189,24 +189,29 @@
 }
 
 /* ===== 모바일 토글 버튼 (1920px 미만) ===== */
-#sidebar-toggle {
+
+#toggle-col {
   display: none;
-  position: fixed;
-  right: 400px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
+  width: 60px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+#sidebar-toggle {
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
-  line-height: 1;
   filter: drop-shadow(0 0 8px rgba(100, 210, 220, 0.5));
   transition: filter 0.2s, transform 0.2s;
 }
 #sidebar-toggle:hover {
   filter: drop-shadow(0 0 14px rgba(100, 210, 220, 0.9));
-  transform: translateY(-50%) scale(1.15);
+  transform: scale(1.15);
 }
 #sidebar-toggle .toggle-diamond {
   font-size: 36px;
@@ -214,6 +219,13 @@
   display: block;
   animation: pulse-diamond 2.5s ease-in-out infinite;
 }
+
+@media (max-width: 1919px) {
+  #sidebar { display: none !important; }
+  #toggle-col { display: flex; }
+  #content { padding-right: 12px; } /* 기존 padding-right 클램프 제거 */
+}
+
 @keyframes pulse-diamond {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.55; }
@@ -275,15 +287,22 @@
   margin-top: 20px;
 }
 
-/* ===== 반응형 분기 ===== */
-@media (max-width: 1919px) {
-  #sidebar { display: none !important; }
-  #sidebar-toggle { display: block; }
-}
 
 .sidebar-link:hover { color: #cc0000; }
 
 @media (max-width: 1919px) {
+  
+  #sidebar-toggle {
+      position: fixed;  /* 이게 없어서 right가 안 먹혔음 */
+    right: 300px;      /* 원하는 값으로 조절 */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px; /* layout padding-right와 동일 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .section-image {
     width: clamp(300px, 90vw, 800px);
     height: clamp(170px, 50vw, 450px);
@@ -305,17 +324,12 @@
 
   #content {
     padding: clamp(16px, 3vw, 36px) clamp(12px, 3vw, 48px);
-     padding-right: clamp(80px, 12vw, 120px);
+    padding-right: clamp(70px, 10vw, 120px); /* 마름모 오른쪽 버튼 공간 확보 */
   }
 }
   </style>
 </head>
 <body>
-
-  <!-- 소라색 ◆ 토글 버튼 -->
-<button id="sidebar-toggle" onclick="openOverlay()" aria-label="메뉴 열기">
-  <span class="toggle-diamond">◆</span>
-</button>
 
 <!-- 오버레이 배경 -->
 <div id="sidebar-overlay-backdrop" onclick="closeOverlay()"></div>
@@ -1476,6 +1490,13 @@
 
 
     </div>
+
+    <!-- 마름모 전용 컬럼 -->
+  <div id="toggle-col">
+    <button id="sidebar-toggle" onclick="openOverlay()" aria-label="메뉴 열기">
+      <span class="toggle-diamond">◆</span>
+    </button>
+  </div>
 
     <div id="sidebar">
       <p class="sidebar-section-title">[공략 및 해설]</p>
