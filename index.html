@@ -38,9 +38,9 @@
     /* 헤더 */
     #header {
       width: 100%;
-      height: 270px;
+      height: clamp(100px, 20vw, 270px); /* 기존 height: 270px 대체 */
       background: #111 url('Image/Header.png') center / cover no-repeat;
-      margin-bottom: 80px;
+      margin-bottom: clamp(20px, 5vw, 80px); /* 기존 margin-bottom: 80px 대체 */
     }
 
     /* 전체 레이아웃 */
@@ -187,10 +187,171 @@
   padding-left: 4px;
   transition: color 0.15s;
 }
+
+/* ===== 모바일 토글 버튼 (1920px 미만) ===== */
+#sidebar-toggle {
+  display: none;
+  position: fixed;
+  right: 400px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(100, 210, 220, 0.5));
+  transition: filter 0.2s, transform 0.2s;
+}
+#sidebar-toggle:hover {
+  filter: drop-shadow(0 0 14px rgba(100, 210, 220, 0.9));
+  transform: translateY(-50%) scale(1.15);
+}
+#sidebar-toggle .toggle-diamond {
+  font-size: 36px;
+  color: #5fc8d8;
+  display: block;
+  animation: pulse-diamond 2.5s ease-in-out infinite;
+}
+@keyframes pulse-diamond {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* ===== 오버레이 배경 ===== */
+#sidebar-overlay-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1100;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+#sidebar-overlay-backdrop.active {
+  opacity: 1;
+}
+
+/* ===== 오버레이 사이드바 ===== */
+#sidebar-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(85vw, 400px);
+  height: 100vh;
+  background: #050505;
+  border-left: 1px solid #1a1a1a;
+  z-index: 1200;
+  padding: 50px 18px 30px;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#sidebar-overlay.open {
+  transform: translateX(0);
+}
+
+/* 닫기 버튼 */
+#overlay-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #5fc8d8;
+  font-size: 26px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.15s;
+}
+#overlay-close-btn:hover { color: #fff; }
+
+#swipe-hint {
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===== 반응형 분기 ===== */
+@media (max-width: 1919px) {
+  #sidebar { display: none !important; }
+  #sidebar-toggle { display: block; }
+}
+
 .sidebar-link:hover { color: #cc0000; }
+
+@media (max-width: 1919px) {
+  .section-image {
+    width: clamp(300px, 90vw, 800px);
+    height: clamp(170px, 50vw, 450px);
+    margin-left: clamp(0px, 5vw, 200px);
+  }
+
+  .section-desc {
+    font-size: clamp(13px, 2.2vw, 20px);
+    margin-left: clamp(0px, 5vw, 200px);
+  }
+
+  .section-icon {
+    margin-left: clamp(0px, 5vw, 200px);
+  }
+
+  .section-title {
+    font-size: clamp(16px, 3vw, 28px);
+  }
+
+  #content {
+    padding: clamp(16px, 3vw, 36px) clamp(12px, 3vw, 48px);
+     padding-right: clamp(80px, 12vw, 120px);
+  }
+}
   </style>
 </head>
 <body>
+
+  <!-- 소라색 ◆ 토글 버튼 -->
+<button id="sidebar-toggle" onclick="openOverlay()" aria-label="메뉴 열기">
+  <span class="toggle-diamond">◆</span>
+</button>
+
+<!-- 오버레이 배경 -->
+<div id="sidebar-overlay-backdrop" onclick="closeOverlay()"></div>
+
+<!-- 오버레이 사이드바 (기존 사이드바 내용 복사) -->
+<div id="sidebar-overlay">
+  <button id="overlay-close-btn" onclick="closeOverlay()">✕</button>
+
+  <p class="sidebar-section-title">[공략 및 해설]</p>
+  <p class="sidebar-note">※ Ctrl + F를 누르고 장소를 검색해서 원하는 부분을 서치할 수 있습니다.</p>
+  <hr class="sidebar-divider">
+  <button class="sidebar-btn" onclick="openAll()">전체 열기</button>
+  <button class="sidebar-btn" onclick="closeAll()">전체 닫기</button>
+  <hr class="sidebar-divider">
+
+  <a style="font-size: 24px; color: red;"> 메인 퍼즐 </a>
+
+  <a href="#section-storage" class="sidebar-link" onclick="closeOverlay()">비품 보관실</a>
+  <a href="#section-care" class="sidebar-link" onclick="closeOverlay()">도움반</a>
+  <a href="#section-weeclass" class="sidebar-link" onclick="closeOverlay()">위클래스</a>
+  <a href="#section-music" class="sidebar-link" onclick="closeOverlay()">음악실</a>
+  <a href="#section-av" class="sidebar-link" onclick="closeOverlay()">시청각실</a>
+  <a href="#section-class28" class="sidebar-link" onclick="closeOverlay()">2학년 8반</a>
+  <a href="#section-electric" class="sidebar-link" onclick="closeOverlay()">배전실</a>
+  <a href="#section-art" class="sidebar-link" onclick="closeOverlay()">미술실</a>
+  <a href="#section-theater" class="sidebar-link" onclick="closeOverlay()">연극실</a>
+  <a href="#section-hall" class="sidebar-link" onclick="closeOverlay()">대강당</a>
+  <a href="#section-computer" class="sidebar-link" onclick="closeOverlay()">컴퓨터실</a>
+  <a href="#section-dance" class="sidebar-link" onclick="closeOverlay()">무용실</a>
+  <hr class="sidebar-divider">
+  <a href="#section-mirror" class="sidebar-link" onclick="closeOverlay()">깨진 거울 조각 위치 및 본드 위치</a>
+  <a href="#section-bad" class="sidebar-link" onclick="closeOverlay()">배드 엔딩</a>
+  <a href="#section-true" class="sidebar-link" onclick="closeOverlay()">트루 엔딩</a>
+
+  <p id="swipe-hint"></p>
+</div>
 
   <div id="header"></div>
 
@@ -1389,6 +1550,37 @@
         body.classList.add('hidden');
       });
     }
+
+    // 오버레이 열기
+function openOverlay() {
+  const backdrop = document.getElementById('sidebar-overlay-backdrop');
+  const overlay = document.getElementById('sidebar-overlay');
+  backdrop.style.display = 'block';
+  requestAnimationFrame(() => {
+    backdrop.classList.add('active');
+    overlay.classList.add('open');
+  });
+}
+
+// 오버레이 닫기
+function closeOverlay() {
+  const backdrop = document.getElementById('sidebar-overlay-backdrop');
+  const overlay = document.getElementById('sidebar-overlay');
+  backdrop.classList.remove('active');
+  overlay.classList.remove('open');
+  setTimeout(() => { backdrop.style.display = 'none'; }, 380);
+}
+
+// 터치 스와이프로 닫기
+(function() {
+  const overlay = document.getElementById('sidebar-overlay');
+  let startX = 0;
+  overlay.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  overlay.addEventListener('touchend', e => {
+    if (e.changedTouches[0].clientX - startX > 60) closeOverlay();
+  }, { passive: true });
+})();
+
   </script>
 
 </body>
