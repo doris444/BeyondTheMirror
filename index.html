@@ -363,6 +363,9 @@
   <a href="#section-mirror" class="sidebar-link" onclick="closeOverlay()">깨진 거울 조각 위치 및 본드 위치</a>
   <a href="#section-bad" class="sidebar-link" onclick="closeOverlay()">배드 엔딩</a>
   <a href="#section-true" class="sidebar-link" onclick="closeOverlay()">트루 엔딩</a>
+  <hr class="sidebar-divider">
+
+  <a style= "color: #525252;"> © Copyright 2026 김소현 All Rights Reserved.</a>
 
   <p id="swipe-hint"></p>
 </div>
@@ -1528,6 +1531,10 @@
       <a href="#section-bad" class="sidebar-link">배드 엔딩</a>
       <a href="#section-true" class="sidebar-link">트루 엔딩</a>
 
+      <hr class="sidebar-divider">
+
+      <a style= "color: #525252;"> © Copyright 2026 김소현 All Rights Reserved.</a>
+
 
     </div>
 
@@ -1576,6 +1583,7 @@
 function openOverlay() {
   const backdrop = document.getElementById('sidebar-overlay-backdrop');
   const overlay = document.getElementById('sidebar-overlay');
+  document.body.style.overflow = 'hidden';
   backdrop.style.display = 'block';
   requestAnimationFrame(() => {
     backdrop.classList.add('active');
@@ -1587,6 +1595,7 @@ function openOverlay() {
 function closeOverlay() {
   const backdrop = document.getElementById('sidebar-overlay-backdrop');
   const overlay = document.getElementById('sidebar-overlay');
+   document.body.style.overflow = '';
   backdrop.classList.remove('active');
   overlay.classList.remove('open');
   setTimeout(() => { backdrop.style.display = 'none'; }, 380);
