@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://doris444.github.io/BeyondTheMirror/sitemap.xml
