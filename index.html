@@ -149,17 +149,17 @@
 
     /* 사이드바: 스크롤해도 항상 고정 */
     #sidebar {
-      width: 490px;
-      flex-shrink: 0;
-      border-left: 1px solid #1a1a1a;
-      background: #050505;
-      padding: 26px 20px;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      overflow-y: auto;
-       padding: 50px 10px 0px;
-    }
+  width: 490px;
+  flex-shrink: 0;
+  border-left: 1px solid #1a1a1a;
+  background: #050505;
+  padding: 26px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+   padding: 15px 10px 0px;
+}
 
     .sidebar-section-title {
       font-size: 20px;
@@ -178,7 +178,7 @@
     .sidebar-divider {
       border: none;
       border-top: 1px solid #1a1a1a;
-      margin: 18px 0;
+      margin: 12px 0;
     }
 
     .sidebar-btn {
@@ -981,6 +981,9 @@
           <div class="section-image">
             <img src="Image/86.png">
           </div>
+          <div class="section-image">
+            <img src="Image/86_0.png">
+          </div>
            <div class="section-image">
             <img src="Image/87.png">
           </div>
@@ -1062,7 +1065,7 @@
           <div class="section-image">
             <video src="Image/2-8.mp4" controls width="100%" height="100%"></video>
           </div>
-          <p class="section-desc">→ → ↓ ↑ → → ← ↑ 순으로 인형이 바라보니 바로 뒤에 가서 태엽을 풀어주세요.</p>
+          <p class="section-desc">인형 뒤에서 상호작용을 하면 → → ↓ ↑ → → ← ↑ 순으로 인형이 바라보니 바로 뒤에 가서 태엽을 풀어주세요.</p>
 
           <div class="section-image">
             <img src="Image/100.png">
@@ -1173,10 +1176,11 @@
           <div class="section-image">
             <img src="Image/121.png">
           </div>
+          <p class="section-desc">미술실은 상하좌우가 반전되는 공간입니다.<br> 이를 감안하며 열심히 도자기를 밀어봅니다.</p>
           <div class="section-image">
-            <img src="Image/122.png">
+            <video src="Image/artroom.mp4" controls width="100%" height="100%"></video>
           </div>
-          <p class="section-desc">갈색 도자기를 밀어서 연극실 열쇠를 획득해 줍니다.</p>
+          <p class="section-desc">아이템 근처에 다가서면 눈알 귀신이 쫓아오는데, <br> 재빨리 리셋 버튼이 있는 곳으로 달려가 누르면 귀신이 멈춥니다.</p>
 
           <div class="section-image">
             <img src="Image/123.png">
@@ -1260,25 +1264,14 @@
         </div>
         <div class="section-body">
           <div class="section-image">
-            <img src="Image/135.png">
-          </div>
-          <p class="section-desc">틀리면 입구를 봉쇄시킨다고 하니 대강당에선 부적 사용을 지양해 주세요.</p>
-
-          <div class="section-image">
-            <img src="Image/136.png">
-          </div>
-          <div class="section-image">
-            <img src="Image/144.png">
-          </div>
-          <div class="section-image">
-            <img src="Image/145.png">
-          </div>
-          <p class="section-desc">말 그대로 보이지 않는 손아귀로 인해 컨트롤 조작을 못 하게 되면 <br> 누군가의 일기장 / 완성된 쪽지 / 학교 신문 중에 하나 선택해 시청하면 손아귀에서 벗어날 수 있습니다. </p>
-
-          <div class="section-image">
             <img src="Image/136_1.png">
           </div>
-          <p class="section-desc">그녀에게 필요한 두 가지는? <br> 이번엔 단어 찾기 퍼즐입니다. 아까 유의 깊게 보라고 했던 얼??질과 ?이 뭉개졌다고 했던 단서 기억하시나요? <br> 사진을 보고 매치해 보면 얼굴 껍질, 눈입니다. <br> 5개를 선택하라고 했었으니 얼,굴,껍,질,눈을 하나씩 선택하면 되겠네요.</p>
+          <div class="section-image">
+            <img src="Image/135.png">
+          </div>
+          <p class="section-desc">틀리면 입구를 봉쇄시킨다고 하니, 한 번에 정답을 맞추는 게 좋겠네요.
+          
+          <p class="section-desc">그녀에게 필요한 다섯 글자는? <br> 이번엔 단어 찾기 퍼즐입니다. 아까 유의 깊게 보라고 했던 얼??질과 ?이 뭉개졌다고 했던 단서 기억하시나요? <br> 사진을 보고 매치해 보면 얼굴 껍질, 눈입니다. <br> 5개를 선택하라고 했었으니 얼,굴,껍,질,눈을 하나씩 선택하면 되겠네요.</p>
           
           <div class="section-image">
             <img src="Image/137.png">
@@ -1296,6 +1289,11 @@
             <img src="Image/142.png">
           </div>
           <p class="section-desc">순서는 상관없으니 얼,굴,껍,질,눈 단어를 찾아서 선택해 주시면 됩니다.</p>
+
+            <div class="section-image">
+            <video src="Image/grasp.mp4" controls width="100%" height="100%"></video>
+          </div>
+          <p class="section-desc">정답을 맞추자마자 손아귀가 플레이어의 발목을 잡는데요. <br> 모든 정답을 맞힌 후, 일기 / 학교 신문 / 쪽지 등 종이에 관련된 아이템 중 하나를 사용하면 파훼 가능합니다.</p>
 
           <div class="section-image">
             <img src="Image/143.png">
@@ -1368,7 +1366,7 @@
           <div class="section-image">
             <img src="Image/160_0.png">
           </div>
-          <p class="section-desc">무용실에 입장하려면 깨진 거울 조각 8개와 접착제(본드)가 필요합니다. <br> 8개 거울 조각 위치를 알려드리겠습니다. </p>
+          <p class="section-desc">무용실에 입장하려면 깨진 거울 조각 8개와 접착제가 필요합니다. <br> 8개 거울 조각 위치를 알려드리겠습니다. </p>
           
         </div>
       </div>
@@ -1376,7 +1374,7 @@
       <div class="section">
         <div class="section-header" onclick="toggleSection(this)" id="section-mirror">
           <span class="section-icon">■</span>
-          <span class="section-title">깨진 거울 조각 위치 및 본드 위치</span>
+          <span class="section-title">깨진 거울 조각 위치 및 접착제 위치</span>
         </div>
         <div class="section-body">
           <div class="section-image">
@@ -1434,9 +1432,14 @@
           <span class="section-title">무용실</span>
         </div>
         <div class="section-body">
+          
+          <div class="section-image">
+            <img src="Image/160_1.png">
+          </div>
+          
           <div class="section-image">
            <iframe width="100%" height="100%" 
-            src="https://www.youtube.com/embed/teekNuV0T9c"
+            src="https://www.youtube.com/watch?v=GvDx9gWcn0g"
             frameborder="0" allowfullscreen></iframe>
         </div>
   
@@ -1485,6 +1488,18 @@
         </div>
       </div>
 
+       <div class="section">
+        <div class="section-header" onclick="toggleSection(this)" id="section-normal">
+          <span class="section-icon">■</span>
+          <span class="section-title">노말 엔딩</span>
+        </div>
+        <div class="section-body">
+          <p class="section-desc">트루 엔딩 조건에 맞지 않거나, 탈출 시, 일반적으로 볼 수 있는 엔딩입니다.</p>
+          
+
+        </div>
+      </div>
+
       <div class="section">
         <div class="section-header" onclick="toggleSection(this)" id="section-bad">
           <span class="section-icon">■</span>
@@ -1512,6 +1527,57 @@
             <img src="Image/170.png">
           </div>
           <p class="section-desc">방송실에 들어가 스토리를 봐주시고 도합 160 이상인 상태로 동일하게 클리어해 주시면 됩니다. <br><br> 스트레스 게이지가 부족하다면? <br> 급식실 상자 근처 귀신, 컴퓨터실 켜진 컴퓨터 근처 귀신, 무용실 귀신 출몰 구역을 활용해 게이지를 채워 보세요. </p>
+
+        </div>
+      </div>
+
+        <div class="section">
+        <div class="section-header" onclick="toggleSection(this)" id="section-snack">
+          <span class="section-icon">■</span>
+          <span class="section-title">스트레스 해소 아이템 위치</span>
+        </div>
+        <div class="section-body">
+         <div class="section-image">
+            <img src="Image/Snack/1층 왼 복도.png">
+          </div>
+           <p class="section-desc">1층 왼쪽 복도 사물함 </p>
+           <div class="section-image">
+            <img src="Image/Snack/2층 오른 복도.png">
+          </div>
+           <p class="section-desc">2층 오른 복도 사물함 </p>
+           <div class="section-image">
+            <img src="Image/Snack/3층 왼 복도.png">
+          </div>
+           <p class="section-desc">3층 왼쪽 복도 사물함 </p>
+           <div class="section-image">
+            <img src="Image/Snack/1-2.png">
+          </div>
+          <p class="section-desc">1학년 2반 책상 </p>
+          <div class="section-image">
+            <img src="Image/Snack/1-6.png">
+          </div>
+           <p class="section-desc">1학년 6반 바닥 </p>
+           <div class="section-image">
+            <img src="Image/Snack/2-4.png">
+          </div>
+           <p class="section-desc">2학년 4반 교탁 </p>
+           <div class="section-image">
+            <img src="Image/Snack/도움반.png">
+          </div>
+           <p class="section-desc">도움반 선반 </p>
+           <div class="section-image">
+            <img src="Image/Snack/조리실.png">
+          </div>
+           <p class="section-desc">조리실 카트 </p>
+           <div class="section-image">
+            <img src="Image/Snack/1학년 교무실.png">
+          </div>
+           <p class="section-desc">1학년 교무실 </p>
+           <div class="section-image">
+            <img src="Image/Snack/2학년 교무실.png">
+          </div>
+           <p class="section-desc">2학년 교무실 </p>
+          
 
         </div>
       </div>
@@ -1553,8 +1619,10 @@
       <hr class="sidebar-divider">
 
       <a href="#section-mirror" class="sidebar-link">깨진 거울 조각 위치 및 본드 위치</a>
+      <a href="#section-normal" class="sidebar-link">노말 엔딩</a>
       <a href="#section-bad" class="sidebar-link">배드 엔딩</a>
       <a href="#section-true" class="sidebar-link">트루 엔딩</a>
+      <a href="#section-snack" class="sidebar-link">스트레스 해소 아이템 위치</a>
 
       <hr class="sidebar-divider">
 
